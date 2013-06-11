@@ -37,7 +37,8 @@
     if (self.udpsock == nil)
         self.udpsock = [[UDPSocket alloc] init];
     
-    [self.udpsock  runClientWithAddress:@"8.8.8.8" port:32332];
+    [self.udpsock  runClientWithAddress:@"103.6.84.203" port:32332];
+    //[self.udpsock  runClientWithAddress:@"127.0.0.1" port:32332];
 }
 
 - (IBAction)SampleButton:(id)sender {

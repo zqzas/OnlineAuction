@@ -93,7 +93,7 @@
 
 static void SocketReadCallback(CFSocketRef s, CFSocketCallBackType type, CFDataRef address, const void *data, void *info)
 {
-    
+    NSLog(@"I did receive something:)\n");
 }
 
 - (BOOL) setupSocketConnectedToAddress:(NSData *)address port:(NSUInteger)port error:(NSError **)errorPtr
@@ -121,15 +121,42 @@ static void SocketReadCallback(CFSocketRef s, CFSocketCallBackType type, CFDataR
     {
         struct sockaddr_in addr;
         memset(&addr, 0, sizeof(addr));
-        [address getBytes:&addr length:[address length]]; //copy into addr
- 
-        assert(addr.sin_family == AF_INET);
+        
+        addr.sin_len = sizeof(addr);
+        addr.sin_family = AF_INET;
         addr.sin_port = htons(port);
-        //err = connect(sock, (const struct sockaddr *) &addr, sizeof(addr));
-        //char *s = "ok";
-        //err = sendto(sock, s, sizeof(*s), 0, &addr, sizeof(addr));
-        //if (err < 0)
-        //    err = errno;
+        addr.sin_addr.s_addr = INADDR_ANY;
+        err = bind(sock, (const struct sockaddr *) &addr, sizeof(addr));
+        /*
+        if (address != nil)
+        {
+            //Sender Mode
+
+            //[address getBytes:&addr length:[address length]]; //copy into addr
+     
+            //assert(addr.sin_family == AF_INET);
+            //addr.sin_port = htons(port);
+            //err = connect(sock, (const struct sockaddr *) &addr, sizeof(addr));
+            //char *s = "ok";
+            //err = sendto(sock, s, sizeof(*s), 0, &addr, sizeof(addr));
+            //if (err < 0)
+            //    err = errno;
+        }
+        else
+        {
+            //Listener Mode, where address is nil
+            
+            addr.sin_len = sizeof(addr);
+            addr.sin_family = AF_INET;
+            addr.sin_port = htons(port);
+            addr.sin_addr.s_addr = INADDR_ANY;
+            err = bind(sock, (const struct sockaddr *) &addr, sizeof(addr));
+        }
+        if (err <0)
+        {
+            err = errno;
+        }
+         */
     }
     
     //Set non-blocking mode
