@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UDPSocket.h" 
 
 @interface SecondViewController : UIViewController
 

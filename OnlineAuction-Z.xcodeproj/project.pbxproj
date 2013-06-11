@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5E6A37671764BFDD007609D7 /* UDPSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E6A37661764BFDD007609D7 /* UDPSocket.m */; };
 		5E9DDDEC1761F3A4003EFF8B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9DDDEB1761F3A4003EFF8B /* UIKit.framework */; };
 		5E9DDDEE1761F3A4003EFF8B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9DDDED1761F3A4003EFF8B /* Foundation.framework */; };
 		5E9DDDF01761F3A4003EFF8B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9DDDEF1761F3A4003EFF8B /* CoreGraphics.framework */; };
@@ -24,9 +25,13 @@
 		5E9DDE121761F3A4003EFF8B /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E9DDE111761F3A4003EFF8B /* SecondViewController.m */; };
 		5E9DDE141761F3A4003EFF8B /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E9DDE131761F3A4003EFF8B /* second.png */; };
 		5E9DDE161761F3A4003EFF8B /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E9DDE151761F3A4003EFF8B /* second@2x.png */; };
+		5E9DDE1E1761F98F003EFF8B /* DialogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E9DDE1D1761F98F003EFF8B /* DialogViewController.m */; };
+		5E9DDE2117635020003EFF8B /* AuctionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E9DDE2017635020003EFF8B /* AuctionModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5E6A37651764BFDD007609D7 /* UDPSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDPSocket.h; sourceTree = "<group>"; };
+		5E6A37661764BFDD007609D7 /* UDPSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDPSocket.m; sourceTree = "<group>"; };
 		5E9DDDE81761F3A4003EFF8B /* OnlineAuction-Z.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OnlineAuction-Z.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E9DDDEB1761F3A4003EFF8B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5E9DDDED1761F3A4003EFF8B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -50,6 +55,10 @@
 		5E9DDE111761F3A4003EFF8B /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		5E9DDE131761F3A4003EFF8B /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
 		5E9DDE151761F3A4003EFF8B /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
+		5E9DDE1C1761F98F003EFF8B /* DialogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DialogViewController.h; sourceTree = "<group>"; };
+		5E9DDE1D1761F98F003EFF8B /* DialogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DialogViewController.m; sourceTree = "<group>"; };
+		5E9DDE1F17635020003EFF8B /* AuctionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuctionModel.h; sourceTree = "<group>"; };
+		5E9DDE2017635020003EFF8B /* AuctionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuctionModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +118,12 @@
 				5E9DDE131761F3A4003EFF8B /* second.png */,
 				5E9DDE151761F3A4003EFF8B /* second@2x.png */,
 				5E9DDDF21761F3A4003EFF8B /* Supporting Files */,
+				5E9DDE1C1761F98F003EFF8B /* DialogViewController.h */,
+				5E9DDE1D1761F98F003EFF8B /* DialogViewController.m */,
+				5E9DDE1F17635020003EFF8B /* AuctionModel.h */,
+				5E6A37651764BFDD007609D7 /* UDPSocket.h */,
+				5E6A37661764BFDD007609D7 /* UDPSocket.m */,
+				5E9DDE2017635020003EFF8B /* AuctionModel.m */,
 			);
 			path = "OnlineAuction-Z";
 			sourceTree = "<group>";
@@ -202,6 +217,9 @@
 				5E9DDDFC1761F3A4003EFF8B /* AppDelegate.m in Sources */,
 				5E9DDE0B1761F3A4003EFF8B /* FirstViewController.m in Sources */,
 				5E9DDE121761F3A4003EFF8B /* SecondViewController.m in Sources */,
+				5E9DDE1E1761F98F003EFF8B /* DialogViewController.m in Sources */,
+				5E9DDE2117635020003EFF8B /* AuctionModel.m in Sources */,
+				5E6A37671764BFDD007609D7 /* UDPSocket.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,6 +352,7 @@
 				5E9DDE1B1761F3A4003EFF8B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
