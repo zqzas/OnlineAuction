@@ -28,8 +28,9 @@
     CFSocketRef _cfSocket;
 }
 
+
 @synthesize serverAddress;
-@synthesize serverPort;
+//@synthesize serverPort;
 
 - (id)init
 {
@@ -91,9 +92,51 @@
     return;
 }
 
+- (void)readData
+//Process to read data
+{
+    //NSLog(@"I did receive something:)\n");
+    int err;
+    int sock;
+    struct sockaddr_storage addr;
+    socklen_t addrLen;
+    uint8_t buffer[4096];
+    ssize_t bytesRead;
+    
+    
+    sock = CFSocketGetNative(self->_cfSocket);
+    addrLen = sizeof(addr);
+    bytesRead = recvfrom(sock, buffer, sizeof(buffer), 0, (struct sockaddr *) &addr, &addrLen);
+    buffer[bytesRead] = 0;
+    
+    if (bytesRead < 0)
+        err = errno;
+    else if (bytesRead == 0)
+        err = EPIPE;
+    else
+    { 
+        NSLog(@"%@", [NSString stringWithUTF8String:(const char *)&buffer]);
+        return;
+    }
+    
+    
+}
+
 static void SocketReadCallback(CFSocketRef s, CFSocketCallBackType type, CFDataRef address, const void *data, void *info)
 {
-    NSLog(@"I did receive something:)\n");
+    UDPSocket * obj = (__bridge UDPSocket *) info;
+    
+    #pragma unused(s)
+    assert(s == obj->_cfSocket);
+    #pragma unused(type)
+    assert(type == kCFSocketReadCallBack);
+    #pragma unused(address)
+    assert(address == nil);
+    #pragma unused(data)
+    assert(data == nil);
+
+    
+    [obj readData];
 }
 
 - (BOOL) setupSocketConnectedToAddress:(NSData *)address port:(NSUInteger)port error:(NSError **)errorPtr
@@ -101,6 +144,7 @@ static void SocketReadCallback(CFSocketRef s, CFSocketCallBackType type, CFDataR
     int err;
     int junk;
     int sock;
+    const CFSocketContext   context = { 0, (__bridge void *)(self), NULL, NULL, NULL };
     CFRunLoopSourceRef rls;
     
     //Assert something for safety
@@ -172,7 +216,7 @@ static void SocketReadCallback(CFSocketRef s, CFSocketCallBackType type, CFDataR
     
     if (err == 0)
     {
-        self->_cfSocket = CFSocketCreateWithNative(NULL, sock, kCFSocketReadCallBack, SocketReadCallback, NULL);
+        self->_cfSocket = CFSocketCreateWithNative(NULL, sock, kCFSocketReadCallBack, SocketReadCallback, &context);
         
         assert(CFSocketGetSocketFlags(self->_cfSocket) & kCFSocketCloseOnInvalidate);
         sock = -1;

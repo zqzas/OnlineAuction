@@ -25,7 +25,7 @@
 
 
 @property (nonatomic, strong, readonly) NSData * serverAddress;
-@property (nonatomic, assign, readonly) NSUInteger serverPort;
+//@property (nonatomic, assign, readonly) NSUInteger serverPort;
 
 
 @end
