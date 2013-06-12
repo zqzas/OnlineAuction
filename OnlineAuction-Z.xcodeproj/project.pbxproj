@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5E3D7CA917688C620082FD62 /* CommunicationWithServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E3D7CA817688C620082FD62 /* CommunicationWithServer.m */; };
 		5E6A37671764BFDD007609D7 /* UDPSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E6A37661764BFDD007609D7 /* UDPSocket.m */; };
 		5E9DDDEC1761F3A4003EFF8B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9DDDEB1761F3A4003EFF8B /* UIKit.framework */; };
 		5E9DDDEE1761F3A4003EFF8B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9DDDED1761F3A4003EFF8B /* Foundation.framework */; };
@@ -30,6 +31,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5E3D7CA717688C620082FD62 /* CommunicationWithServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommunicationWithServer.h; sourceTree = "<group>"; };
+		5E3D7CA817688C620082FD62 /* CommunicationWithServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommunicationWithServer.m; sourceTree = "<group>"; };
 		5E6A37651764BFDD007609D7 /* UDPSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDPSocket.h; sourceTree = "<group>"; };
 		5E6A37661764BFDD007609D7 /* UDPSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDPSocket.m; sourceTree = "<group>"; };
 		5E9DDDE81761F3A4003EFF8B /* OnlineAuction-Z.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OnlineAuction-Z.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -115,6 +118,8 @@
 				5E9DDE0E1761F3A4003EFF8B /* first@2x.png */,
 				5E9DDE101761F3A4003EFF8B /* SecondViewController.h */,
 				5E9DDE111761F3A4003EFF8B /* SecondViewController.m */,
+				5E3D7CA717688C620082FD62 /* CommunicationWithServer.h */,
+				5E3D7CA817688C620082FD62 /* CommunicationWithServer.m */,
 				5E9DDE131761F3A4003EFF8B /* second.png */,
 				5E9DDE151761F3A4003EFF8B /* second@2x.png */,
 				5E9DDDF21761F3A4003EFF8B /* Supporting Files */,
@@ -220,6 +225,7 @@
 				5E9DDE1E1761F98F003EFF8B /* DialogViewController.m in Sources */,
 				5E9DDE2117635020003EFF8B /* AuctionModel.m in Sources */,
 				5E6A37671764BFDD007609D7 /* UDPSocket.m in Sources */,
+				5E3D7CA917688C620082FD62 /* CommunicationWithServer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
