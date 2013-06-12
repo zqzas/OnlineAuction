@@ -10,7 +10,8 @@
 
 @interface SecondViewController ()
 @property (weak, nonatomic) IBOutlet UITextView *Dialog;
-@property (nonatomic, strong, readwrite) UDPSocket * udpsock;
+@property (strong, nonatomic) CommunicationWithServer *comm;
+
 
 @end
 
@@ -21,9 +22,8 @@
     [super viewDidLoad];
     self.Dialog.text = @"Hello World";
 	// Do any additional setup after loading the view, typically from a nib.
-    
-    
-    [self setupUDPSocket];
+    self.comm = [[CommunicationWithServer alloc] init];
+    self.comm.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning
@@ -32,14 +32,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)setupUDPSocket
-{
-    if (self.udpsock == nil)
-        self.udpsock = [[UDPSocket alloc] init];
-    
-    [self.udpsock  runClientWithAddress:@"103.6.84.203" port:32332];
-    //[self.udpsock  runClientWithAddress:@"127.0.0.1" port:32332];
-}
 
 - (IBAction)SampleButton:(id)sender {
     
@@ -48,11 +40,29 @@
     self.Dialog.text = [NSString stringWithFormat:@"%@\n%@", self.Dialog.text, saySomething];
     
     
+    [self.comm sendMessageToServer:saySomething];
+    //will be notified automatically when get reply
+}
+
+#pragma mark - Communication protocol delegate
+-(void)setAlart:(NSString *) alartMsg
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Alart from server"
+                                                    message: alartMsg
+                                                   delegate: nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+    //[alert release];
     
-    NSData * data = [saySomething dataUsingEncoding:NSUTF8StringEncoding];
     
-    [self.udpsock sendData:data];
-    
+}
+
+#pragma mark - Communication protocol delegate
+-(void)notifyReply:(NSString *)replyMsg
+{
+    self.Dialog.text = [NSString stringWithFormat:@"%@\n>>> %@", self.Dialog.text, replyMsg];
+
 }
 
 @end

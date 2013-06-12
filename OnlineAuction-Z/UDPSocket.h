@@ -18,8 +18,9 @@
 
 - (id)init;
 
-- (void)sendData:(NSData *)data;
-- (BOOL)runClientWithAddress:(NSString *)serverIP port:(NSUInteger)port;
+- (void)sendData:(int)sock data:(NSData *)data;
+- (int)runClientWithAddress:(NSString *)serverIP port:(NSUInteger)port;
+- (NSString *)readData: (int)sock;
 
 - (void)stop;
 

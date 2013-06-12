@@ -25,7 +25,7 @@
 @implementation UDPSocket
 {
     //CFHostRef _cfHost;
-    CFSocketRef _cfSocket;
+    //CFSocketRef _cfSocket;
 }
 
 
@@ -43,18 +43,18 @@
     return self;
 }
 
-- (void)sendData:(NSData *)data
+- (void)sendData:(int)sock data:(NSData *)data
 {
     NSData * addr;
     int err;
-    int sock;
+    //int sock;
     ssize_t bytesWritten;
     const struct sockaddr_in * addrPtr;
     socklen_t addrLen;
     
     assert(data != nil);
     
-    sock = CFSocketGetNative(self->_cfSocket);
+    //sock = CFSocketGetNative(self->_cfSocket);
     assert(sock >= 0);
     
     assert(self.serverAddress != nil);
@@ -92,19 +92,18 @@
     return;
 }
 
-- (void)readData
+- (NSString *)readData: (int)sock
 //Process to read data
 {
     //NSLog(@"I did receive something:)\n");
     int err;
-    int sock;
     struct sockaddr_storage addr;
     socklen_t addrLen;
     uint8_t buffer[4096];
     ssize_t bytesRead;
     
     
-    sock = CFSocketGetNative(self->_cfSocket);
+    //sock = CFSocketGetNative(self->_cfSocket);
     addrLen = sizeof(addr);
     bytesRead = recvfrom(sock, buffer, sizeof(buffer), 0, (struct sockaddr *) &addr, &addrLen);
     buffer[bytesRead] = 0;
@@ -115,42 +114,41 @@
         err = EPIPE;
     else
     { 
-        NSLog(@"%@", [NSString stringWithUTF8String:(const char *)&buffer]);
-        return;
+        //NSLog(@"%@", [NSString stringWithUTF8String:(const char *)&buffer]);
+        return [NSString stringWithUTF8String:(const char *)&buffer];
     }
-    
-    
+    return @"";
 }
 
-static void SocketReadCallback(CFSocketRef s, CFSocketCallBackType type, CFDataRef address, const void *data, void *info)
-{
-    UDPSocket * obj = (__bridge UDPSocket *) info;
-    
-    #pragma unused(s)
-    assert(s == obj->_cfSocket);
-    #pragma unused(type)
-    assert(type == kCFSocketReadCallBack);
-    #pragma unused(address)
-    assert(address == nil);
-    #pragma unused(data)
-    assert(data == nil);
-
-    
-    [obj readData];
-}
+//static void SocketReadCallback(CFSocketRef s, CFSocketCallBackType type, CFDataRef address, const void *data, void *info)
+//{
+//    UDPSocket * obj = (__bridge UDPSocket *) info;
+//    
+//    #pragma unused(s)
+//    assert(s == obj->_cfSocket);
+//    #pragma unused(type)
+//    assert(type == kCFSocketReadCallBack);
+//    #pragma unused(address)
+//    assert(address == nil);
+//    #pragma unused(data)
+//    assert(data == nil);
+//
+//    
+//    [obj readData];
+//}
 
 - (BOOL) setupSocketConnectedToAddress:(NSData *)address port:(NSUInteger)port error:(NSError **)errorPtr
 {
     int err;
-    int junk;
+    //int junk;
     int sock;
-    const CFSocketContext   context = { 0, (__bridge void *)(self), NULL, NULL, NULL };
-    CFRunLoopSourceRef rls;
+    //const CFSocketContext   context = { 0, (__bridge void *)(self), NULL, NULL, NULL };
+    //CFRunLoopSourceRef rls;
     
     //Assert something for safety
     assert([address length] <= sizeof(struct sockaddr_storage));
     assert(port < 65536);
-    assert(self->_cfSocket == NULL);
+    //assert(self->_cfSocket == NULL);
     
     
     //Build socket
@@ -217,62 +215,60 @@ static void SocketReadCallback(CFSocketRef s, CFSocketCallBackType type, CFDataR
     
     if (err == 0)
     {
-        self->_cfSocket = CFSocketCreateWithNative(NULL, sock, kCFSocketReadCallBack, SocketReadCallback, &context);
-        
-        assert(CFSocketGetSocketFlags(self->_cfSocket) & kCFSocketCloseOnInvalidate);
-        sock = -1;
-        
-        rls = CFSocketCreateRunLoopSource(NULL, self->_cfSocket, 0);
-        assert(rls != NULL);
-        
-        CFRunLoopAddSource(CFRunLoopGetCurrent(), rls, kCFRunLoopDefaultMode);
-        
-        //Handle errors
-        
-        if (sock != -1)
-        {
-            junk = close(sock);
-            assert(junk == 0);
-        }
-        assert( (err == 0) == (self->_cfSocket != NULL));
-
-        if ( (self->_cfSocket == NULL) && (errorPtr != NULL) ) {
-            *errorPtr = [NSError errorWithDomain:NSPOSIXErrorDomain code:err userInfo:nil];
-        }
+//        self->_cfSocket = CFSocketCreateWithNative(NULL, sock, kCFSocketReadCallBack, SocketReadCallback, &context);
+//        
+//        assert(CFSocketGetSocketFlags(self->_cfSocket) & kCFSocketCloseOnInvalidate);
+//        sock = -1;
+//        
+//        rls = CFSocketCreateRunLoopSource(NULL, self->_cfSocket, 0);
+//        assert(rls != NULL);
+//        
+//        CFRunLoopAddSource(CFRunLoopGetCurrent(), rls, kCFRunLoopDefaultMode);
+//        
+//        //Handle errors
+//        
+//        if (sock != -1)
+//        {
+//            junk = close(sock);
+//            assert(junk == 0);
+//        }
+//        assert( (err == 0) == (self->_cfSocket != NULL));
+//
+//        if ( (self->_cfSocket == NULL) && (errorPtr != NULL) ) {
+//            *errorPtr = [NSError errorWithDomain:NSPOSIXErrorDomain code:err userInfo:nil];
+//        }
     }
-    return (err == 0);
+    return sock;
 }
 
-- (BOOL)runClientWithAddress:(NSString *)serverIP port:(NSUInteger)port
+- (int)runClientWithAddress:(NSString *)serverIP port:(NSUInteger)port
 {
+    int sock;
     NSError * error;
     
     assert(inet_addr([serverIP UTF8String]) != -1); //check if IPv4 numbers-and-dots notation is correct
     
-    assert(self.port ==0);
-    if (self.port ==0)
-    {
-        self.port = port;
-        
-        //init address
-        
-        struct sockaddr_in address;
-        address.sin_family = AF_INET;
-        address.sin_port = htons(port);
-        address.sin_addr.s_addr = inet_addr([serverIP UTF8String]); //convert NSString to char *
-        
-        self.serverAddress = [NSData dataWithBytes:&address length:sizeof(address)];
-        
-        BOOL success = [self setupSocketConnectedToAddress:self.serverAddress port:port error:&error];
+    assert(self.port == 0);
+    self.port = port;
     
-        if (!success)
-        {
-            NSLog(@"Error when setup");
-            return NO;
-        }
-        
+    //init address
+    
+    struct sockaddr_in address;
+    address.sin_family = AF_INET;
+    address.sin_port = htons(port);
+    address.sin_addr.s_addr = inet_addr([serverIP UTF8String]); //convert NSString to char *
+    
+    self.serverAddress = [NSData dataWithBytes:&address length:sizeof(address)];
+    
+    sock = [self setupSocketConnectedToAddress:self.serverAddress port:port error:&error];
+
+    if (sock < 0)
+    {
+        NSLog(@"Error when setup socket");
+        return NO;
     }
-    return YES;
+    
+    return sock;
 }
 
 @end
