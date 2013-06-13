@@ -27,8 +27,9 @@
 		5E9DDE141761F3A4003EFF8B /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E9DDE131761F3A4003EFF8B /* second.png */; };
 		5E9DDE161761F3A4003EFF8B /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E9DDE151761F3A4003EFF8B /* second@2x.png */; };
 		5E9DDE1E1761F98F003EFF8B /* DialogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E9DDE1D1761F98F003EFF8B /* DialogViewController.m */; };
-		5E9DDE2117635020003EFF8B /* AuctionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E9DDE2017635020003EFF8B /* AuctionModel.m */; };
 		5EAA99121769BD4C0079FFA1 /* serverUDP.py in Resources */ = {isa = PBXBuildFile; fileRef = 5EAA99101769BD4C0079FFA1 /* serverUDP.py */; };
+		5EAA99151769EFBC0079FFA1 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EAA99141769EFBC0079FFA1 /* LoginViewController.m */; };
+		5EAA99181769FE000079FFA1 /* HallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EAA99171769FE000079FFA1 /* HallViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,9 +62,11 @@
 		5E9DDE151761F3A4003EFF8B /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
 		5E9DDE1C1761F98F003EFF8B /* DialogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DialogViewController.h; sourceTree = "<group>"; };
 		5E9DDE1D1761F98F003EFF8B /* DialogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DialogViewController.m; sourceTree = "<group>"; };
-		5E9DDE1F17635020003EFF8B /* AuctionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuctionModel.h; sourceTree = "<group>"; };
-		5E9DDE2017635020003EFF8B /* AuctionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuctionModel.m; sourceTree = "<group>"; };
 		5EAA99101769BD4C0079FFA1 /* serverUDP.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = serverUDP.py; sourceTree = "<group>"; };
+		5EAA99131769EFBC0079FFA1 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		5EAA99141769EFBC0079FFA1 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		5EAA99161769FE000079FFA1 /* HallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HallViewController.h; sourceTree = "<group>"; };
+		5EAA99171769FE000079FFA1 /* HallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HallViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +116,10 @@
 				5E9DDDFA1761F3A4003EFF8B /* AppDelegate.h */,
 				5E9DDDFB1761F3A4003EFF8B /* AppDelegate.m */,
 				5E9DDE031761F3A4003EFF8B /* MainStoryboard_iPhone.storyboard */,
+				5EAA99131769EFBC0079FFA1 /* LoginViewController.h */,
+				5EAA99141769EFBC0079FFA1 /* LoginViewController.m */,
+				5EAA99161769FE000079FFA1 /* HallViewController.h */,
+				5EAA99171769FE000079FFA1 /* HallViewController.m */,
 				5E9DDE061761F3A4003EFF8B /* MainStoryboard_iPad.storyboard */,
 				5E9DDE091761F3A4003EFF8B /* FirstViewController.h */,
 				5E9DDE0A1761F3A4003EFF8B /* FirstViewController.m */,
@@ -128,10 +135,8 @@
 				5E9DDDF21761F3A4003EFF8B /* Supporting Files */,
 				5E9DDE1C1761F98F003EFF8B /* DialogViewController.h */,
 				5E9DDE1D1761F98F003EFF8B /* DialogViewController.m */,
-				5E9DDE1F17635020003EFF8B /* AuctionModel.h */,
 				5E6A37651764BFDD007609D7 /* UDPSocket.h */,
 				5E6A37661764BFDD007609D7 /* UDPSocket.m */,
-				5E9DDE2017635020003EFF8B /* AuctionModel.m */,
 			);
 			path = "OnlineAuction-Z";
 			sourceTree = "<group>";
@@ -235,9 +240,10 @@
 				5E9DDE0B1761F3A4003EFF8B /* FirstViewController.m in Sources */,
 				5E9DDE121761F3A4003EFF8B /* SecondViewController.m in Sources */,
 				5E9DDE1E1761F98F003EFF8B /* DialogViewController.m in Sources */,
-				5E9DDE2117635020003EFF8B /* AuctionModel.m in Sources */,
 				5E6A37671764BFDD007609D7 /* UDPSocket.m in Sources */,
 				5E3D7CA917688C620082FD62 /* CommunicationWithServer.m in Sources */,
+				5EAA99151769EFBC0079FFA1 /* LoginViewController.m in Sources */,
+				5EAA99181769FE000079FFA1 /* HallViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
