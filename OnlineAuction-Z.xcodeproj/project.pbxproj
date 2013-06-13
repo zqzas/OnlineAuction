@@ -28,6 +28,7 @@
 		5E9DDE161761F3A4003EFF8B /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E9DDE151761F3A4003EFF8B /* second@2x.png */; };
 		5E9DDE1E1761F98F003EFF8B /* DialogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E9DDE1D1761F98F003EFF8B /* DialogViewController.m */; };
 		5E9DDE2117635020003EFF8B /* AuctionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E9DDE2017635020003EFF8B /* AuctionModel.m */; };
+		5EAA99121769BD4C0079FFA1 /* serverUDP.py in Resources */ = {isa = PBXBuildFile; fileRef = 5EAA99101769BD4C0079FFA1 /* serverUDP.py */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		5E9DDE1D1761F98F003EFF8B /* DialogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DialogViewController.m; sourceTree = "<group>"; };
 		5E9DDE1F17635020003EFF8B /* AuctionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuctionModel.h; sourceTree = "<group>"; };
 		5E9DDE2017635020003EFF8B /* AuctionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuctionModel.m; sourceTree = "<group>"; };
+		5EAA99101769BD4C0079FFA1 /* serverUDP.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = serverUDP.py; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 				5E9DDE0C1761F3A4003EFF8B /* first.png */,
 				5E9DDE0E1761F3A4003EFF8B /* first@2x.png */,
 				5E9DDE101761F3A4003EFF8B /* SecondViewController.h */,
+				5EAA990E1769BD4C0079FFA1 /* serverInPython */,
 				5E9DDE111761F3A4003EFF8B /* SecondViewController.m */,
 				5E3D7CA717688C620082FD62 /* CommunicationWithServer.h */,
 				5E3D7CA817688C620082FD62 /* CommunicationWithServer.m */,
@@ -145,6 +148,14 @@
 				5E9DDE011761F3A4003EFF8B /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5EAA990E1769BD4C0079FFA1 /* serverInPython */ = {
+			isa = PBXGroup;
+			children = (
+				5EAA99101769BD4C0079FFA1 /* serverUDP.py */,
+			);
+			path = serverInPython;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,6 +219,7 @@
 				5E9DDE0F1761F3A4003EFF8B /* first@2x.png in Resources */,
 				5E9DDE141761F3A4003EFF8B /* second.png in Resources */,
 				5E9DDE161761F3A4003EFF8B /* second@2x.png in Resources */,
+				5EAA99121769BD4C0079FFA1 /* serverUDP.py in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
