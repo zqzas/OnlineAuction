@@ -136,7 +136,7 @@ class RoomArray:
 
 
 def parseCMD(data):
-    if data[0] == '/':
+    if data and data[0] == '/':
         spacePos = data.find(' ')
         if spacePos == -1:
             (cmd, param) = (data, None)
@@ -241,7 +241,8 @@ if __name__ == "__main__":
         if alart != '' and currentRoom != None:
             usersInSameRoom = userList.getUsersInSameRoom(currentRoom)
             for user in usersInSameRoom:
-                s.sendto(alart, user.userAddress)
+                if user != currentUser:
+                    s.sendto(alart, user.userAddress)
 
 
     print "This hell never happen."
