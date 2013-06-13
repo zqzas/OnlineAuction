@@ -7,7 +7,9 @@
 
 import socket
 port = 32332
+
 TEST_MODE = True
+DEBUG_MODE = True
 
 class AuctionUser:
     def __init__(self):
@@ -16,9 +18,11 @@ class AuctionUser:
         self.currentRoom = None
         self.currentPrice = 0
 
-    def loginServer(userName, userAddress):
+
+    @classmethod
+    def loginServer(cls, userName, userAddress):
         #a class method
-        user = AuctionUser()
+        user = cls()
         user.userName = userName
         user.userAddress = userAddress
         return user
@@ -49,8 +53,8 @@ class AuctionUser:
         return False
 
 class AuctionRoom:
-    def __init__(self, name = ''):
-        self.roomID = None
+    def __init__(self, roomID = None, name = 'ExampleRoom'):
+        self.roomID = roomID
         self.roomName = name
         self.currentPrice= 0
         self.bidHolder = None
@@ -92,7 +96,15 @@ class UserArray:
     def userLogin(self, user):
         self.userArray.append(user)
 
-def RoomArray:
+    def getUsersInSameRoom(self, room):
+        answer = []
+        for user in self.userArray:
+            if user.currentRoom.roomID == room.roomID:
+                answer.append(user)
+        return answer
+
+
+class RoomArray:
     def __init__(self):
         self.roomArray = []
         
@@ -112,13 +124,24 @@ def RoomArray:
     def countRooms(self):
         return len(self.roomArray)
 
+    def findRoom(self, roomID):
+        roomID = int(roomID)
+        for obj in self.roomArray:
+            if obj.roomID == roomID:
+                return obj
+        return None
+
+
 
 
 
 def parseCMD(data):
     if data[0] == '/':
         spacePos = data.find(' ')
-        (cmd, param) = (data[ : spacePos], data[spacePos + 1 : ])
+        if spacePos == -1:
+            (cmd, param) = (data, None)
+        else:
+            (cmd, param) = (data[ : spacePos], data[spacePos + 1 : ])
         return (cmd, param)
     return (None, None)
 
@@ -139,14 +162,15 @@ if __name__ == "__main__":
 
     print "waiting on port: ", port       
 
-    userList = userArray()
-    roomList = roomArray()
+    userList = UserArray()
+    roomList = RoomArray()
 
     if TEST_MODE:
         ''' for test
         '''
-        testRoom = AuctionRoom()
+        testRoom = AuctionRoom(roomID = 0)
         roomList.addRoom(testRoom)
+
 
 
     while True:
@@ -168,21 +192,27 @@ if __name__ == "__main__":
             response = 'OK'
 
         if currentUser != None:
+            currentRoom = currentUser.currentRoom
+
             if cmd == '/auctions':
                 allrooms = roomList.getAllRooms()
-                response = makeResponse([(room.roomID, room.roomName, roomPrice) for room in allrooms])
+                response = makeResponse([(room.roomID, room.roomName, room.currentPrice) for room in allrooms])
 
             if cmd == '/join':
                 if currentUser:
                     room = roomList.findRoom(param)
                     if room:
-                        currentUser.joinRoom(self, room)
+                        currentUser.joinRoom(room)
                         currentRoom = room
-                        response = makeResponse((room.roomName, room.roomPrice))
+                        response = makeResponse([(room.roomName, room.currentPrice)])
+                        print currentRoom
+
+
 
             if currentRoom != None:
                 if cmd == '/list':
                     usersInSameRoom = userList.getUsersInSameRoom(currentRoom)
+                    print currentRoom, usersInSameRoom
                     response = makeResponse([(user.userName, user.currentPrice) for user in usersInSameRoom])
 
                 if cmd == '/bid':
@@ -191,7 +221,7 @@ if __name__ == "__main__":
                         if currentRoom.placeBid(currentUser, price):
                             response = 'OK'
                             #need to send alart to the users in the same room
-                            alart = '!A higher price %d from %s' % (str(price), currentUser.userName)
+                            alart = '!A higher price %d from %s' % (price, currentUser.userName)
 
 
                 if cmd == '/leave':
@@ -204,6 +234,7 @@ if __name__ == "__main__":
                         currentRoom = None
 
         #send normal reply
+        print 'Reply to ', senderAddr, ' : ', response
         s.sendto(response, senderAddr)
 
         #send alart
