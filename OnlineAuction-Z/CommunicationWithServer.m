@@ -21,7 +21,6 @@
     CFSocketRef _cfSocket;
 }
 
-//@synthesize dialogDelegate;
 
 - (id)init
 {
@@ -29,6 +28,15 @@
     [self setupCommucationToServer];
     return self;
 }
+
++ (id)dialogDelegate:(id)dialog
+{
+    static id dialogVC = nil;
+    if (dialogVC == nil)
+        dialogVC = dialog;
+    return dialogVC;
+}
+
 - (void)setupCommucationToServer
 {
     //int err;
@@ -68,7 +76,10 @@
     [self.udpsock sendData:sock data:data];
     
     //log the data
-    //[dialogDelegate updateDialog:msg];
+    dialogVC = [CommunicationWithServer dialogDelegate:nil];
+    if (dialogVC != nil)
+        [dialogVC updateDialog:msg];
+    
 }
 
 - (void)didReceiveReply:(NSString *)msg
@@ -83,7 +94,9 @@
         [self.delegate notifyReply:msg];
     }
     //log the data
-    //[dialogDelegate updateDialog:[NSString  stringWith]];
+    dialogVC = [CommunicationWithServer dialogDelegate:nil];
+    if (dialogVC != nil)
+        [dialogVC updateDialog:[NSString  stringWithFormat:@">>>%@", msg]];
 }
 
 static void SocketReadCallback(CFSocketRef s, CFSocketCallBackType type, CFDataRef address, const void *data, void *info)

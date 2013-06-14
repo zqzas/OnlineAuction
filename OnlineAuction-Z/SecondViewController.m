@@ -9,6 +9,7 @@
 #import "SecondViewController.h"
 
 @interface SecondViewController ()
+
 @property (weak, nonatomic) IBOutlet UITextView *Dialog;
 @property (strong, nonatomic) CommunicationWithServer *comm;
 
@@ -22,10 +23,9 @@
     [super viewDidLoad];
     self.Dialog.text = @"Hello World";
 	// Do any additional setup after loading the view, typically from a nib.
-    self.comm = [[CommunicationWithServer alloc] init];
-    self.comm.delegate = self;
-    
-
+    //self.comm = [[CommunicationWithServer alloc] init];
+    //self.comm.delegate = self;
+    [CommunicationWithServer dialogDelegate:self];
     
 }
 
@@ -37,7 +37,7 @@
     self.Dialog.text = [NSString stringWithFormat:@"%@\n%@", self.Dialog.text, saySomething];
     
     
-    [self.comm sendMessageToServer:saySomething];
+    //[self.comm sendMessageToServer:saySomething];
     //will be notified automatically when get reply
 }
 
@@ -60,6 +60,11 @@
 {
     self.Dialog.text = [NSString stringWithFormat:@"%@\n>>> %@", self.Dialog.text, replyMsg];
 
+}
+
+-(void)updateDialog:(NSString *)newLine
+{
+    self.Dialog.text = [NSString stringWithFormat:@"%@\n%@", self.Dialog.text, newLine];
 }
 
 @end

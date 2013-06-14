@@ -49,7 +49,7 @@
      
 }
 - (IBAction)placeBid:(id)sender {
-    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Enter Bid" message:@"Input a number > 0" delegate:self cancelButtonTitle:@"Hide" otherButtonTitles:nil];
+    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Enter Bid" message:@"Input a number > 0" delegate:self cancelButtonTitle:@"Send" otherButtonTitles:nil];
     alert.alertViewStyle = UIAlertViewStylePlainTextInput;
     [alert show];
 }

@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "OnlineAuction-Z/CommunicationWithServer.m"
-         timestampString = "392735067.2376"
+         timestampString = "392924525.142797"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "85"
-         endingLineNumber = "85"
+         startingLineNumber = "96"
+         endingLineNumber = "96"
          landmarkName = "-didReceiveReply:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -21,11 +21,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "OnlineAuction-Z/CommunicationWithServer.m"
-         timestampString = "392734650.849031"
+         timestampString = "392924525.142797"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "63"
-         endingLineNumber = "63"
+         startingLineNumber = "71"
+         endingLineNumber = "71"
          landmarkName = "@implementation CommunicationWithServer"
          landmarkType = "3">
       </FileBreakpoint>
@@ -34,11 +34,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "OnlineAuction-Z/SecondViewController.m"
-         timestampString = "392734650.849031"
+         timestampString = "392923261.339587"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "25"
-         endingLineNumber = "25"
+         startingLineNumber = "26"
+         endingLineNumber = "26"
          landmarkName = "-viewDidLoad"
          landmarkType = "5">
       </FileBreakpoint>
@@ -47,25 +47,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "OnlineAuction-Z/CommunicationWithServer.m"
-         timestampString = "392734650.849031"
+         timestampString = "392924525.142797"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "39"
-         endingLineNumber = "39"
+         startingLineNumber = "47"
+         endingLineNumber = "47"
          landmarkName = "-setupCommucationToServer"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "OnlineAuction-Z/CommunicationWithServer.m"
-         timestampString = "392734186.59668"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "70"
-         endingLineNumber = "70"
-         landmarkName = "-sendMessageToServer:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -73,24 +60,24 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "OnlineAuction-Z/SecondViewController.m"
-         timestampString = "392824716.122098"
+         timestampString = "392924525.142797"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "44"
          endingLineNumber = "44"
-         landmarkName = "-setAlart:"
-         landmarkType = "5">
+         landmarkName = "@implementation SecondViewController"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "OnlineAuction-Z/CommunicationWithServer.m"
-         timestampString = "392735150.619511"
+         timestampString = "392924525.142797"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "76"
-         endingLineNumber = "76"
+         startingLineNumber = "87"
+         endingLineNumber = "87"
          landmarkName = "-didReceiveReply:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -151,11 +138,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "OnlineAuction-Z/CommunicationWithServer.m"
-         timestampString = "392877916.4476"
+         timestampString = "392924525.142797"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "40"
-         endingLineNumber = "40"
+         startingLineNumber = "48"
+         endingLineNumber = "48"
          landmarkName = "-setupCommucationToServer"
          landmarkType = "5">
       </FileBreakpoint>
@@ -177,11 +164,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "OnlineAuction-Z/CommunicationWithServer.m"
-         timestampString = "392878277.305885"
+         timestampString = "392924525.142797"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "96"
-         endingLineNumber = "96"
+         startingLineNumber = "109"
+         endingLineNumber = "109"
          landmarkName = "SocketReadCallback()"
          landmarkType = "7">
       </FileBreakpoint>
@@ -190,7 +177,7 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "OnlineAuction-Z/SecondViewController.m"
-         timestampString = "392881521.610624"
+         timestampString = "392924525.142797"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "34"
@@ -203,20 +190,20 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "OnlineAuction-Z/SecondViewController.m"
-         timestampString = "392881533.827892"
+         timestampString = "392924525.142797"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "58"
          endingLineNumber = "58"
-         landmarkName = "-notifyReply:"
-         landmarkType = "5">
+         landmarkName = "@implementation SecondViewController"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "OnlineAuction-Z/SecondViewController.m"
-         timestampString = "392881578.099427"
+         timestampString = "392924525.142797"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "37"
@@ -378,6 +365,19 @@
          startingLineNumber = "27"
          endingLineNumber = "27"
          landmarkName = "-viewDidLoad"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "OnlineAuction-Z/CommunicationWithServer.m"
+         timestampString = "392924525.142797"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "99"
+         endingLineNumber = "99"
+         landmarkName = "-didReceiveReply:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "CommunicationWithServer.h"
 
-@interface SecondViewController : UIViewController
 
+@interface SecondViewController : UIViewController
+-(void)updateDialog:(NSString *)newLine;
 @end
+
