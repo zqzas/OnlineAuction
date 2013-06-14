@@ -29,7 +29,7 @@
 
 - (IBAction)SampleButton:(id)sender {
     
-    NSString * saySomething = @"Say Something";
+    NSString * saySomething = @"/login test";
     
     self.Dialog.text = [NSString stringWithFormat:@"%@\n%@", self.Dialog.text, saySomething];
     

@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "CommunicationWithServer.h"
-#import "HallViewController.h"
+#import "HallTableViewController.h"
+
+
 
 @interface LoginViewController : UIViewController
 

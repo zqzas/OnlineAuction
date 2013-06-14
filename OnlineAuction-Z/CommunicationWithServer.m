@@ -36,8 +36,8 @@
     if (self.udpsock == nil)
         self.udpsock = [[UDPSocket alloc] init];
     
-    sock = [self.udpsock  runClientWithAddress:@"103.6.84.203" port:32332];
-    //[self.udpsock  runClientWithAddress:@"127.0.0.1" port:32332];
+    //sock = [self.udpsock  runClientWithAddress:@"103.6.84.203" port:32332];
+    sock = [self.udpsock  runClientWithAddress:@"127.0.0.1" port:32332];
     
     self->_cfSocket = CFSocketCreateWithNative(NULL, sock, kCFSocketReadCallBack, SocketReadCallback, &context);
     
@@ -92,8 +92,9 @@ static void SocketReadCallback(CFSocketRef s, CFSocketCallBackType type, CFDataR
 //    assert(address == nil);
 //    #pragma unused(data)
 //    assert(data == nil);
-    
+    NSLog(@"I start looking");
     NSString * msg = [udpsock readData:sock];
+    NSLog(@"I see%@\n", msg);
     
     [obj didReceiveReply:msg];
 }

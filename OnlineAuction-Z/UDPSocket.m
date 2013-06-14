@@ -166,7 +166,7 @@
         
         addr.sin_len = sizeof(addr);
         addr.sin_family = AF_INET;
-        addr.sin_port = htons(port);
+        addr.sin_port = htons(32333);//any port
         addr.sin_addr.s_addr = INADDR_ANY;
         err = bind(sock, (const struct sockaddr *) &addr, sizeof(addr));
         /*

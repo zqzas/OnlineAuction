@@ -12,12 +12,12 @@
 @property (weak, nonatomic, readwrite) IBOutlet UIButton *LoginButton;
 @property (weak, nonatomic, readwrite) IBOutlet UITextField *serverIP;
 @property (weak, nonatomic, readwrite) IBOutlet UITextField *userName;
+@property (assign, nonatomic, readwrite) NSInteger isLogin;
+@property (weak, nonatomic) IBOutlet UIButton *EnterButton;
 
 
 @property (strong, nonatomic) CommunicationWithServer *comm;
 
-- (BOOL)checkValidIP:(NSString *)IP;
-- (BOOL)checkValidUserName:(NSString *)userName;
 
 @end
 
@@ -31,6 +31,8 @@
     
     self.comm = [[CommunicationWithServer alloc] init];
     self.comm.delegate = self;
+    self.isLogin = -1;
+    self.EnterButton.enabled = NO;
    
 }
 
@@ -43,21 +45,58 @@
 {
     return TRUE;
 }
-- (IBAction)loginAction:(id)sender {
-    
-    if (checkValidIP(self.serverIP.text) && checkValidUserName(self.userName.text))
+
+#pragma mark - Communication protocol delegate
+-(void)setAlart:(NSString *) alartMsg
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Alart from server"
+                                                    message: alartMsg
+                                                   delegate: nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+}
+
+#pragma mark - Communication protocol delegate
+-(void)notifyReply:(NSString *)replyMsg
+{
+    if ([replyMsg isEqualToString:@"OK"])
     {
-        //
+        self.isLogin = 1;
+        [self setAlart:@"Login OK."];
+        self.EnterButton.enabled = YES;
+    }
+    else
+    {
+        self.isLogin = 0;
+        [self setAlart:@"Login failed. Please try again."];
     }
 }
 
+- (IBAction)loginAction:(id)sender
+{
+    
+    if ([self checkValidIP:self.serverIP.text] && [self checkValidUserName:self.userName.text])
+    {
+        [self.comm sendMessageToServer:[NSString stringWithFormat:@"/login %@", self.userName.text]];
+
+        //[self setAlart:@"Trying to connect..."];
+    }
+}
+- (IBAction)EnterAction:(id)sender
+{
+    //anything to do?
+    
+}
+
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.identifier isEqualToString:@"LoginSegue"])
-        if ([segue.destinationViewController isKindOfClass:[HallViewController class]])
+    if ([segue.identifier isEqualToString:@"EnterSegue"])
+        if ([segue.destinationViewController isKindOfClass:[HallTableViewController class]])
         {
             //prepare
-            HallViewController *cdvc = (HallViewController *)segue.destinationViewController;
+            HallTableViewController *cdvc = (HallTableViewController *)segue.destinationViewController;
             cdvc.comm = self.comm;
         }
 }

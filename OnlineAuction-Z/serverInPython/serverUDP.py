@@ -196,7 +196,7 @@ if __name__ == "__main__":
 
             if cmd == '/auctions':
                 allrooms = roomList.getAllRooms()
-                response = makeResponse([(room.roomID, room.roomName, room.currentPrice) for room in allrooms])
+                response = makeResponse([(room.roomName, room.currentPrice) for room in allrooms])
 
             if cmd == '/join':
                 if currentUser:
