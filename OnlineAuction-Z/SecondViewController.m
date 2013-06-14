@@ -24,6 +24,9 @@
 	// Do any additional setup after loading the view, typically from a nib.
     self.comm = [[CommunicationWithServer alloc] init];
     self.comm.delegate = self;
+    
+
+    
 }
 
 

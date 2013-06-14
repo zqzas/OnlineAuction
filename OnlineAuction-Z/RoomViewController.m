@@ -23,12 +23,18 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     self.title = self.roomName;
-    self.priceLabel.text = [NSString stringWithFormat:@"Current Price: %@", self.currentPrice];
+    [self updatePriceLabel];
     self.userList.text = @"";
     
     self.comm.delegate = self;
     [self joinRoom];
     [self updateUserList];
+}
+
+- (void)updatePriceLabel
+{
+    self.priceLabel.text = [NSString stringWithFormat:@"Current Price: %@", self.currentPrice];
+
 }
 
 
@@ -42,6 +48,18 @@
     [self.comm sendMessageToServer:[NSString stringWithFormat:@"/join %lu", (unsigned long)self.roomID]];
      
 }
+- (IBAction)placeBid:(id)sender {
+    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Enter Bid" message:@"Input a number > 0" delegate:self cancelButtonTitle:@"Hide" otherButtonTitles:nil];
+    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    [alert show];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    NSUInteger bid = [[[alertView textFieldAtIndex:0] text] integerValue];
+    
+    [self.comm sendMessageToServer: [NSString stringWithFormat: @"/bid %lu", (unsigned long)bid]];
+}
+
 
 #pragma mark - Communication protocol delegate
 -(void)setAlart:(NSString *) alartMsg
@@ -75,7 +93,7 @@
         }
         
     }
-    
+    [self updatePriceLabel];
  
 }
 

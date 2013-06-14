@@ -14,10 +14,14 @@
 
 @end
 
+
+
 @implementation CommunicationWithServer
 {
     CFSocketRef _cfSocket;
 }
+
+//@synthesize dialogDelegate;
 
 - (id)init
 {
@@ -62,6 +66,9 @@
     NSData * data = [msg dataUsingEncoding:NSUTF8StringEncoding];
     int sock = CFSocketGetNative(self->_cfSocket);
     [self.udpsock sendData:sock data:data];
+    
+    //log the data
+    //[dialogDelegate updateDialog:msg];
 }
 
 - (void)didReceiveReply:(NSString *)msg
@@ -75,7 +82,8 @@
     {
         [self.delegate notifyReply:msg];
     }
-    //NSLog(@"Haha!%@\n", msg);
+    //log the data
+    //[dialogDelegate updateDialog:[NSString  stringWith]];
 }
 
 static void SocketReadCallback(CFSocketRef s, CFSocketCallBackType type, CFDataRef address, const void *data, void *info)

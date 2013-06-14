@@ -223,7 +223,7 @@ if __name__ == "__main__":
                         if currentRoom.placeBid(currentUser, price):
                             response = 'OK'
                             #need to send alart to the users in the same room
-                            alart = '!A higher price %d from %s' % (price, currentUser.userName)
+                            alart = '!A new price %d from USER:%s' % (price, currentUser.userName)
 
 
                 if cmd == '/leave':
@@ -243,8 +243,8 @@ if __name__ == "__main__":
         if alart != '' and currentRoom != None:
             usersInSameRoom = userList.getUsersInSameRoom(currentRoom)
             for user in usersInSameRoom:
-                if user != currentUser:
-                    s.sendto(alart, user.userAddress)
+                #if user != currentUser:
+                s.sendto(alart, user.userAddress)
 
 
     print "This hell never happen."

@@ -299,7 +299,7 @@
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Current Price:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TSR-MJ-5Hu">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="27" id="E3A-ea-1Gw"/>
-                                    <constraint firstAttribute="width" constant="148" id="I6u-il-7r6"/>
+                                    <constraint firstAttribute="width" constant="294" id="mkI-w7-mxF"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -314,16 +314,19 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="placeBid:" destination="J17-1j-3aJ" eventType="touchUpInside" id="tK7-cy-P1H"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="TSR-MJ-5Hu" firstAttribute="leading" secondItem="36o-Hc-D2b" secondAttribute="leading" constant="6" id="6Es-6W-lcR"/>
                             <constraint firstItem="rc5-FW-6MX" firstAttribute="leading" secondItem="36o-Hc-D2b" secondAttribute="leading" constant="-5" id="C2Z-1a-fTb"/>
                             <constraint firstItem="NZw-Nx-Q9r" firstAttribute="top" secondItem="rc5-FW-6MX" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="j96-NS-de7"/>
                             <constraint firstItem="NZw-Nx-Q9r" firstAttribute="centerX" secondItem="36o-Hc-D2b" secondAttribute="centerX" type="default" id="oYh-2I-Rcu"/>
                             <constraint firstItem="TSR-MJ-5Hu" firstAttribute="top" secondItem="36o-Hc-D2b" secondAttribute="top" constant="6" id="pul-2y-Dtp"/>
                             <constraint firstItem="rc5-FW-6MX" firstAttribute="top" secondItem="36o-Hc-D2b" secondAttribute="top" constant="55" id="tuP-FX-WZU"/>
+                            <constraint firstAttribute="trailing" secondItem="TSR-MJ-5Hu" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="wxj-Cf-aEr"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Gyh-id-bh5"/>
@@ -356,6 +359,39 @@
         <image name="first" width="16" height="16"/>
         <image name="second" width="16" height="16"/>
     </resources>
+    <classes>
+        <class className="FirstViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FirstViewController.h"/>
+        </class>
+        <class className="HallTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/HallTableViewController.h"/>
+        </class>
+        <class className="LoginViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="EnterButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="LoginButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="serverIP" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="userName" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="RoomViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RoomViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="priceLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="userList" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="SecondViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SecondViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="Dialog" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "UDPSocket.h"
 
 // Protocol definition starts here
 @protocol UICommunicationProtocol  <NSObject>
@@ -15,6 +14,12 @@
 - (void) setAlart:(NSString *)alartMsg;
 - (void) notifyReply:(NSString *)replyMsg;
 @end
+//
+//@protocol DialogDelegate <NSObject>
+//
+//- (void) updateDialog:(NSString *) newLine;
+//
+//@end
 
 @interface CommunicationWithServer : NSObject
 {
@@ -22,6 +27,9 @@
 }
 
 @property (nonatomic, strong) id delegate;
+
+//@property (nonatomic, retain) id <DialogDelegate> dialogDelegate;
+
 
 - (void)setupCommucationToServer;
 
