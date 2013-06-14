@@ -30,6 +30,7 @@
 		5EAA99121769BD4C0079FFA1 /* serverUDP.py in Resources */ = {isa = PBXBuildFile; fileRef = 5EAA99101769BD4C0079FFA1 /* serverUDP.py */; };
 		5EAA99151769EFBC0079FFA1 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EAA99141769EFBC0079FFA1 /* LoginViewController.m */; };
 		5EAA991E176A03CE0079FFA1 /* HallTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EAA991D176A03CE0079FFA1 /* HallTableViewController.m */; };
+		5EAA9927176B0F240079FFA1 /* RoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EAA9926176B0F240079FFA1 /* RoomViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +68,8 @@
 		5EAA99141769EFBC0079FFA1 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		5EAA991C176A03CE0079FFA1 /* HallTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HallTableViewController.h; sourceTree = "<group>"; };
 		5EAA991D176A03CE0079FFA1 /* HallTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HallTableViewController.m; sourceTree = "<group>"; };
+		5EAA9925176B0F240079FFA1 /* RoomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomViewController.h; sourceTree = "<group>"; };
+		5EAA9926176B0F240079FFA1 /* RoomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +140,8 @@
 				5E6A37661764BFDD007609D7 /* UDPSocket.m */,
 				5EAA991C176A03CE0079FFA1 /* HallTableViewController.h */,
 				5EAA991D176A03CE0079FFA1 /* HallTableViewController.m */,
+				5EAA9925176B0F240079FFA1 /* RoomViewController.h */,
+				5EAA9926176B0F240079FFA1 /* RoomViewController.m */,
 			);
 			path = "OnlineAuction-Z";
 			sourceTree = "<group>";
@@ -244,6 +249,7 @@
 				5E3D7CA917688C620082FD62 /* CommunicationWithServer.m in Sources */,
 				5EAA99151769EFBC0079FFA1 /* LoginViewController.m in Sources */,
 				5EAA991E176A03CE0079FFA1 /* HallTableViewController.m in Sources */,
+				5EAA9927176B0F240079FFA1 /* RoomViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

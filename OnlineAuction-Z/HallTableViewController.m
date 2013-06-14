@@ -83,7 +83,7 @@
                                           cancelButtonTitle:@"OK"
                                           otherButtonTitles:nil];
     [alert show];
-    [self updateHallInfo];
+    //[self updateHallInfo];
 }
 
 #pragma mark - Communication protocol delegate
@@ -155,12 +155,19 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+
+    RoomViewController *roomVC = [self.navigationController.storyboard instantiateViewControllerWithIdentifier:@"RoomViewController"];
+    //RoomViewController *roomVC = [[RoomViewController alloc]initWithNibName:@"RoomViewController" bundle:[NSBundle mainBundle]];
+    // ...
+    // Pass the selected object to the new view controller.
+    
+    roomVC.comm = self.comm;
+    roomVC.roomName = [[self.roomArray objectAtIndex:indexPath.row] objectAtIndex:0];
+    roomVC.currentPrice = [[self.roomArray objectAtIndex:indexPath.row] objectAtIndex:1];
+    roomVC.roomID = indexPath.row;
+    [self.navigationController pushViewController:roomVC animated:YES];
+    
+
 }
 
 @end

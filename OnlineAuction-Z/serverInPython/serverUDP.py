@@ -99,8 +99,9 @@ class UserArray:
     def getUsersInSameRoom(self, room):
         answer = []
         for user in self.userArray:
-            if user.currentRoom.roomID == room.roomID:
-                answer.append(user)
+            if user.currentRoom:
+                if user.currentRoom.roomID == room.roomID:
+                    answer.append(user)
         return answer
 
 
@@ -204,7 +205,8 @@ if __name__ == "__main__":
                     if room:
                         currentUser.joinRoom(room)
                         currentRoom = room
-                        response = makeResponse([(room.roomName, room.currentPrice)])
+                        #response = makeResponse([(room.roomName, room.currentPrice)])
+                        response = "OK"
                         print currentRoom
 
 
