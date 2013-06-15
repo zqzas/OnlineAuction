@@ -42,14 +42,14 @@ class AuctionUser:
         return False
 
     def leaveRoom(self):
-        if self.currentRoom != None:
-            self.currentRoom = None
-            self.currentPrice = None
-            return True
-        return False
+        #if self.currentRoom != None:
+        self.currentRoom = None
+        self.currentPrice = 0
+        return True
 
     def placeBid(self, price):
         #like above
+        price = int(price)
         if self.currentRoom != None:
             if price > self.currentPrice:
                 self.currentPrice = price
@@ -58,13 +58,14 @@ class AuctionUser:
 
 class AuctionRoom:
     def __init__(self, roomID = None, name = 'Example 1', basePrice = 0):
-        self.roomID = roomID
+        self.roomID = int(roomID)
         self.roomName = name.replace(' ', '_') #no space in name string
-        self.currentPrice = basePrice
+        self.currentPrice = int(basePrice)
         self.bidHolder = None
         self.isClosed = False
 
     def placeBid(self, user, price):
+        price = int(price)
         if price > self.currentPrice:
             self.currentPrice = price
             self.bidHolder = user
@@ -169,6 +170,7 @@ def makeResponse(data):
 def sendAlart(sock, alart, address):
     try:
         sock.sendto(alart, address)
+        print '>>>send alart to %s: %s' % (address, alart)
     except:
         raise Exception("Fail: sendAlart!")
 
@@ -243,21 +245,26 @@ if __name__ == "__main__":
 
                 if cmd == '/bid':
                     price = int(param)
+                    flag = False 
                     if currentUser.placeBid(price):
                         if currentRoom.placeBid(currentUser, price):
                             response = 'OK'
                             #need to send alart to the users in the same room
                             alart = '! A New Price %d from User: %s' % (price, currentUser.userName)
+                            flag = True
+                    if flag == False:
+                        sendAlart(s, '! Illegal bid.', user.userAddress)
 
 
-                if cmd == '/leave':
+                if cmd == '/leave': #/leave is safe
                     if currentUser.currentPrice == currentRoom.currentPrice:
                         alart = '! The holder of highest bid is leaving the auction.'
-                        response = 'No'
+                        response = 'NO'
                     else:
                         currentUser.leaveRoom()
                         #userList.userLeave(currentUser)
                         currentRoom = None
+                        reponse = 'OK'
 
             if currentUser.userName == 'Administrator':
                 if cmd == '/msg' and param:
@@ -267,8 +274,19 @@ if __name__ == "__main__":
                     if whotoreceive:
                         for user in whotoreceive:
                             if user:
-                                sendAlart(s, '!Admin message: ' + msg, user.userAddress)
-                    
+                                sendAlart(s, '! Admin message: ' + msg, user.userAddress)
+                if cmd == '/opennewauction' and param:
+                    response = 'OK'
+                    roomName = param
+                    roomBasePrice = 0
+                    if param.find(' ') > 0:
+                        roomName = param.split(' ')[0]
+                        roomBasePrice = param.split(' ')[1]
+                    newRoom = AuctionRoom(roomID = roomList.countRooms(), name = roomName, basePrice = roomBasePrice)
+                    roomList.addRoom(newRoom)
+
+
+
 
 
         #send normal reply
@@ -282,6 +300,9 @@ if __name__ == "__main__":
                 #if user != currentUser:
                 sendAlart(s, alart, user.userAddress)
                 #s.sendto(alart, user.userAddress)
+        if 'leaving' in alart:
+            currentUser.leaveRoom()
+        
 
 
     print "This hell never happen."

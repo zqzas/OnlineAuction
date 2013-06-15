@@ -23,6 +23,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     self.title = self.roomName;
+    [self.comm sendMessageToServer:@"/leave"]; //just leave anyway, the /leave is safe at anytime
     [self updatePriceLabel];
     self.userList.text = @"";
     
@@ -31,6 +32,10 @@
     [self updateUserList];
 }
 
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:YES];
+}
 - (void)updatePriceLabel
 {
     self.priceLabel.text = [NSString stringWithFormat:@"Current Price: %@", self.currentPrice];
@@ -78,6 +83,12 @@
 {
     if ([replyMsg isEqualToString:@"OK"])
         return;
+    if ([replyMsg isEqualToString:@"NO"])
+    {
+        //[self.navigationController popViewControllerAnimated:YES];
+        return;
+    }
+        
     NSArray * userArray = [replyMsg componentsSeparatedByString:@"\n"];
     self.userList.text = @"";
     for (int index = 0; index < userArray.count; index++)

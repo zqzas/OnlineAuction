@@ -48,8 +48,9 @@
     if (self.udpsock == nil)
         self.udpsock = [[UDPSocket alloc] init];
     
-    sock = [self.udpsock  runClientWithAddress:@"103.6.84.203" port:32332];
+    //sock = [self.udpsock  runClientWithAddress:@"103.6.84.203" port:32332];
     //sock = [self.udpsock  runClientWithAddress:@"127.0.0.1" port:32332];
+    sock = [self.udpsock  runClientWithAddress:@"10.141.251.84" port:32332];
     
     self->_cfSocket = CFSocketCreateWithNative(NULL, sock, kCFSocketReadCallBack, SocketReadCallback, &context);
     

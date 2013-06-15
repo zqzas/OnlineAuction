@@ -29,11 +29,31 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    self.comm.delegate = self;
-    [self updateHallInfo];
-    self.roomArray = [[NSMutableArray alloc] init];
+    /*
+    if (self.roomArray == nil)
+    {
+        self.roomArray = [[NSMutableArray alloc] init];
+        self.comm.delegate = self;
+        [self updateHallInfo];
+    }
+     */
+    
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:YES];
     
 
+    [self updateHallInfo];
+}
+
+- (void) updateHallInfo
+{
+    self.roomArray = [[NSMutableArray alloc] init];
+    self.comm.delegate = self;
+    [self.comm sendMessageToServer:@"/auctions"];
+    
 }
 
 
@@ -104,12 +124,7 @@
 }
 
 
-- (void) updateHallInfo
-{
-    [self.comm sendMessageToServer:@"/auctions"];
 
-}
-    
 
 /*
 // Override to support conditional editing of the table view.
