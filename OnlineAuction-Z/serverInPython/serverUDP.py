@@ -26,15 +26,19 @@ class AuctionUser:
         user.userName = userName
         user.userAddress = userAddress
         return user
-
+    '''
     def leaveServer(self):
         self.currentRoom = None
         self.currentPrice = 0
+    '''
 
     def joinRoom(self, room):
         if self.currentRoom == None:
             self.currentRoom = room
             return True
+        else:
+            if self.currentRoom == room:
+                return True
         return False
 
     def leaveRoom(self):
@@ -53,10 +57,10 @@ class AuctionUser:
         return False
 
 class AuctionRoom:
-    def __init__(self, roomID = None, name = 'ExampleRoom'):
+    def __init__(self, roomID = None, name = 'Example 1', basePrice = 0):
         self.roomID = roomID
-        self.roomName = name
-        self.currentPrice= 0
+        self.roomName = name.replace(' ', '_') #no space in name string
+        self.currentPrice = basePrice
         self.bidHolder = None
         self.isClosed = False
 
@@ -85,6 +89,14 @@ class UserArray:
             if member.userAddress == address:
                 return member
         return None
+
+    def findUserByName(self, name):
+        result = []
+        for member in self.userArray:
+            if member.userName == name:
+                result.append(member)
+        return result
+                
 
     def userLeave(self, user):
         for member in self.userArray:
@@ -154,6 +166,16 @@ def makeResponse(data):
         response += '\n'
     return response
 
+def sendAlart(sock, alart, address):
+    try:
+        sock.sendto(alart, address)
+    except:
+        raise Exception("Fail: sendAlart!")
+
+
+
+
+
 
 
 if __name__ == "__main__":
@@ -190,6 +212,8 @@ if __name__ == "__main__":
                 user = AuctionUser.loginServer(param, senderAddr)
                 userList.userLogin(user)
                 currentUser = user
+            else:
+                currentUser.leaveRoom()
             response = 'OK'
 
         if currentUser != None:
@@ -203,18 +227,18 @@ if __name__ == "__main__":
                 if currentUser:
                     room = roomList.findRoom(param)
                     if room:
-                        currentUser.joinRoom(room)
-                        currentRoom = room
-                        #response = makeResponse([(room.roomName, room.currentPrice)])
-                        response = "OK"
-                        print currentRoom
-
+                        if currentUser.joinRoom(room):
+                            currentRoom = room
+                            #response = makeResponse([(room.roomName, room.currentPrice)])
+                            response = "OK"
+                            print currentRoom
+                        else:
+                            response = "NO"
 
 
             if currentRoom != None:
                 if cmd == '/list':
                     usersInSameRoom = userList.getUsersInSameRoom(currentRoom)
-                    print currentRoom, usersInSameRoom
                     response = makeResponse([(user.userName, user.currentPrice) for user in usersInSameRoom])
 
                 if cmd == '/bid':
@@ -223,17 +247,29 @@ if __name__ == "__main__":
                         if currentRoom.placeBid(currentUser, price):
                             response = 'OK'
                             #need to send alart to the users in the same room
-                            alart = '!A new price %d from USER:%s' % (price, currentUser.userName)
+                            alart = '! A New Price %d from User: %s' % (price, currentUser.userName)
 
 
                 if cmd == '/leave':
                     if currentUser.currentPrice == currentRoom.currentPrice:
-                        alart = '!The holder of highest bid has left the auction.'
+                        alart = '! The holder of highest bid is leaving the auction.'
                         response = 'No'
                     else:
                         currentUser.leaveRoom()
-                        userList.userLeave(currentUser)
+                        #userList.userLeave(currentUser)
                         currentRoom = None
+
+            if currentUser.userName == 'Administrator':
+                if cmd == '/msg' and param:
+                    whotoreceive = userList.findUserByName(param.split(' ')[0])
+                    if len(param.split(' ')) > 1:
+                        msg = param.split(' ')[1]
+                    if whotoreceive:
+                        for user in whotoreceive:
+                            if user:
+                                sendAlart(s, '!Admin message: ' + msg, user.userAddress)
+                    
+
 
         #send normal reply
         print 'Reply to ', senderAddr, ' : ', response
@@ -244,7 +280,8 @@ if __name__ == "__main__":
             usersInSameRoom = userList.getUsersInSameRoom(currentRoom)
             for user in usersInSameRoom:
                 #if user != currentUser:
-                s.sendto(alart, user.userAddress)
+                sendAlart(s, alart, user.userAddress)
+                #s.sendto(alart, user.userAddress)
 
 
     print "This hell never happen."
