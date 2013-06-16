@@ -150,6 +150,7 @@ class RoomArray:
 
 
 def parseCMD(data):
+    data = data.strip()
     if data and data[0] == '/':
         spacePos = data.find(' ')
         if spacePos == -1:
@@ -233,7 +234,7 @@ if __name__ == "__main__":
                             currentRoom = room
                             #response = makeResponse([(room.roomName, room.currentPrice)])
                             response = "OK"
-                            print currentRoom
+                            alart = '! Welcom new user to this auction: %s.' % (currentUser.userName)
                         else:
                             response = "NO"
 
@@ -275,6 +276,7 @@ if __name__ == "__main__":
                         for user in whotoreceive:
                             if user:
                                 sendAlart(s, '! Admin message: ' + msg, user.userAddress)
+
                 if cmd == '/opennewauction' and param:
                     response = 'OK'
                     roomName = param
@@ -284,6 +286,17 @@ if __name__ == "__main__":
                         roomBasePrice = param.split(' ')[1]
                     newRoom = AuctionRoom(roomID = roomList.countRooms(), name = roomName, basePrice = roomBasePrice)
                     roomList.addRoom(newRoom)
+
+                if currentRoom != None:
+                    if cmd == '/kickout' and param:
+                        whotokick = userList.findUserByName(param)
+                        for loser in whotokick:
+                            sendAlart(s, '! You are kicked out by administrator.', loser.userAddress)
+                            loser.leaveRoom()
+                        if len(whotokick) > 0:
+                            alart = '! User:%s has been kicked out.' % (param)
+
+
 
 
 
@@ -305,6 +318,6 @@ if __name__ == "__main__":
         
 
 
-    print "This hell never happen."
+    print "When hell freezes over."
 
 
