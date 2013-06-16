@@ -234,7 +234,7 @@ if __name__ == "__main__":
                             currentRoom = room
                             #response = makeResponse([(room.roomName, room.currentPrice)])
                             response = "OK"
-                            alart = '! Welcom new user to this auction: %s.' % (currentUser.userName)
+                            alart = '! Welcome new user to this auction: %s.' % (currentUser.userName)
                         else:
                             response = "NO"
 

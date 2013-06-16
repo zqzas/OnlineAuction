@@ -4,16 +4,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
-        <!--First View Controller - First-->
-        <scene sceneID="11">
-            <objects>
-                <viewController title="First" id="2" customClass="FirstViewController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="First" image="first" id="7"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="10" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="648" y="-165"/>
-        </scene>
         <!--Second View Controller - Second-->
         <scene sceneID="13">
             <objects>
@@ -62,7 +52,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="12" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1060" y="273"/>
+            <point key="canvasLocation" x="-35" y="-287"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="15">
@@ -81,7 +71,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="14" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="132" y="180"/>
+            <point key="canvasLocation" x="-584" y="-204"/>
         </scene>
         <!--Login View Controller - Login-->
         <scene sceneID="Sqw-Xn-5O6">
@@ -95,10 +85,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="127.0.0.1" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0tQ-0C-5R9">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="97" id="CF6-72-poA"/>
-                                </constraints>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="10.141.251.84" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0tQ-0C-5R9">
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -157,6 +144,7 @@
                         <constraints>
                             <constraint firstItem="GKi-QO-VEA" firstAttribute="baseline" secondItem="gJx-LC-OuS" secondAttribute="baseline" type="default" id="512-1q-5ta"/>
                             <constraint firstItem="Ul9-6R-p7V" firstAttribute="baseline" secondItem="eIs-g1-xkf" secondAttribute="baseline" type="default" id="7Fn-Rr-sMq"/>
+                            <constraint firstItem="0tQ-0C-5R9" firstAttribute="leading" secondItem="dyu-DP-ewa" secondAttribute="leading" constant="146" id="Id0-nS-Kvm"/>
                             <constraint firstItem="0tQ-0C-5R9" firstAttribute="trailing" secondItem="gJx-LC-OuS" secondAttribute="trailing" type="default" id="PeQ-I5-a8j"/>
                             <constraint firstItem="0tQ-0C-5R9" firstAttribute="leading" secondItem="gJx-LC-OuS" secondAttribute="leading" type="default" id="PpO-2Y-SyX"/>
                             <constraint firstItem="eIs-g1-xkf" firstAttribute="leading" secondItem="Ul9-6R-p7V" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="R89-S5-TIV"/>
@@ -166,7 +154,6 @@
                             <constraint firstItem="kJ3-Az-SlR" firstAttribute="leading" secondItem="dyu-DP-ewa" secondAttribute="leading" constant="82" id="cnh-JF-mNn"/>
                             <constraint firstItem="eIs-g1-xkf" firstAttribute="baseline" secondItem="puh-8g-YGe" secondAttribute="baseline" type="default" id="d2y-sF-Ofp"/>
                             <constraint firstItem="gJx-LC-OuS" firstAttribute="top" secondItem="dyu-DP-ewa" secondAttribute="top" constant="186" id="dss-Hf-3Kx"/>
-                            <constraint firstAttribute="trailing" secondItem="0tQ-0C-5R9" secondAttribute="trailing" constant="63" id="hHW-lC-ce4"/>
                             <constraint firstItem="puh-8g-YGe" firstAttribute="leading" secondItem="Ul9-6R-p7V" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="ma3-3J-2w3"/>
                             <constraint firstItem="0tQ-0C-5R9" firstAttribute="top" secondItem="dyu-DP-ewa" secondAttribute="top" constant="141" id="mhu-Ya-cG8"/>
                             <constraint firstAttribute="bottom" secondItem="Ul9-6R-p7V" secondAttribute="bottom" constant="182" id="xKD-gX-KFd"/>
@@ -182,7 +169,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a4H-iK-Urs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="501" y="961"/>
+            <point key="canvasLocation" x="465" y="453"/>
         </scene>
         <!--Hall Table View Controller-->
         <scene sceneID="yJD-D1-OSr">
@@ -236,7 +223,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TPX-Sp-bmm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="851" y="961"/>
+            <point key="canvasLocation" x="995" y="453"/>
         </scene>
         <!--Room View Controller-->
         <scene sceneID="Lmw-Uc-soa">
@@ -246,13 +233,12 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rc5-FW-6MX">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="user list" translatesAutoresizingMaskIntoConstraints="NO" id="rc5-FW-6MX">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="320" id="rfV-6a-7FO"/>
                                     <constraint firstAttribute="width" constant="320" id="zdM-rV-hNR"/>
                                 </constraints>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                             </textView>
@@ -297,7 +283,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oM5-1Z-29g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1255" y="974"/>
+            <point key="canvasLocation" x="1471" y="453"/>
         </scene>
         <!--Navigation Controller - Item-->
         <scene sceneID="9HO-wb-Z1G">
@@ -313,19 +299,18 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9qG-0M-uaH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-13" y="815"/>
+            <point key="canvasLocation" x="-35" y="447"/>
         </scene>
     </scenes>
     <resources>
-        <image name="first" width="16" height="16"/>
         <image name="second" width="16" height="16"/>
     </resources>
     <classes>
-        <class className="FirstViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FirstViewController.h"/>
-        </class>
         <class className="HallTableViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/HallTableViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="refreshButton:"/>
+            </relationships>
         </class>
         <class className="LoginViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
@@ -344,6 +329,7 @@
         <class className="RoomViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RoomViewController.h"/>
             <relationships>
+                <relationship kind="action" name="placeBid:"/>
                 <relationship kind="outlet" name="priceLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="userList" candidateClass="UITextView"/>
             </relationships>
@@ -351,6 +337,7 @@
         <class className="SecondViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SecondViewController.h"/>
             <relationships>
+                <relationship kind="action" name="SampleButton:"/>
                 <relationship kind="outlet" name="Dialog" candidateClass="UITextView"/>
             </relationships>
         </class>

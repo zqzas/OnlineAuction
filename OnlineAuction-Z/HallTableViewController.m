@@ -86,7 +86,7 @@
     {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault  reuseIdentifier:CellIdentifier];
     }
-    cell.textLabel.text = [NSString stringWithFormat:@"%@: CurrentPrice: %@", [[self.roomArray objectAtIndex:indexPath.row] objectAtIndex:0], [[self.roomArray objectAtIndex:indexPath.row] objectAtIndex:1]];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@: Price: %@", [[self.roomArray objectAtIndex:indexPath.row] objectAtIndex:0], [[self.roomArray objectAtIndex:indexPath.row] objectAtIndex:1]];
     
     return cell;
 }
