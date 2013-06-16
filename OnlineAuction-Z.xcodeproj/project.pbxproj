@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		5E3D7CA917688C620082FD62 /* CommunicationWithServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E3D7CA817688C620082FD62 /* CommunicationWithServer.m */; };
 		5E6A37671764BFDD007609D7 /* UDPSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E6A37661764BFDD007609D7 /* UDPSocket.m */; };
+		5E93B008176DA507009D65F6 /* rss.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E93B007176DA507009D65F6 /* rss.png */; };
+		5E93B00A176DA61D009D65F6 /* hammer.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E93B009176DA61D009D65F6 /* hammer.png */; };
+		5E93B00C176DA623009D65F6 /* heart-rate.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E93B00B176DA623009D65F6 /* heart-rate.png */; };
+		5E93B00E176DB940009D65F6 /* auction-hammer-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E93B00D176DB940009D65F6 /* auction-hammer-icon.png */; };
 		5E9DDDEC1761F3A4003EFF8B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9DDDEB1761F3A4003EFF8B /* UIKit.framework */; };
 		5E9DDDEE1761F3A4003EFF8B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9DDDED1761F3A4003EFF8B /* Foundation.framework */; };
 		5E9DDDF01761F3A4003EFF8B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9DDDEF1761F3A4003EFF8B /* CoreGraphics.framework */; };
@@ -38,6 +42,10 @@
 		5E3D7CA817688C620082FD62 /* CommunicationWithServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommunicationWithServer.m; sourceTree = "<group>"; };
 		5E6A37651764BFDD007609D7 /* UDPSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDPSocket.h; sourceTree = "<group>"; };
 		5E6A37661764BFDD007609D7 /* UDPSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDPSocket.m; sourceTree = "<group>"; };
+		5E93B007176DA507009D65F6 /* rss.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rss.png; sourceTree = "<group>"; };
+		5E93B009176DA61D009D65F6 /* hammer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hammer.png; sourceTree = "<group>"; };
+		5E93B00B176DA623009D65F6 /* heart-rate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "heart-rate.png"; sourceTree = "<group>"; };
+		5E93B00D176DB940009D65F6 /* auction-hammer-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "auction-hammer-icon.png"; sourceTree = "<group>"; };
 		5E9DDDE81761F3A4003EFF8B /* OnlineAuction-Z.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OnlineAuction-Z.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E9DDDEB1761F3A4003EFF8B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5E9DDDED1761F3A4003EFF8B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -89,6 +97,7 @@
 		5E9DDDDF1761F3A3003EFF8B = {
 			isa = PBXGroup;
 			children = (
+				5E93B00D176DB940009D65F6 /* auction-hammer-icon.png */,
 				5E9DDDF11761F3A4003EFF8B /* OnlineAuction-Z */,
 				5E9DDDEA1761F3A4003EFF8B /* Frameworks */,
 				5E9DDDE91761F3A4003EFF8B /* Products */,
@@ -127,6 +136,9 @@
 				5E9DDE0C1761F3A4003EFF8B /* first.png */,
 				5E9DDE0E1761F3A4003EFF8B /* first@2x.png */,
 				5E9DDE101761F3A4003EFF8B /* SecondViewController.h */,
+				5E93B00B176DA623009D65F6 /* heart-rate.png */,
+				5E93B007176DA507009D65F6 /* rss.png */,
+				5E93B009176DA61D009D65F6 /* hammer.png */,
 				5EAA990E1769BD4C0079FFA1 /* serverInPython */,
 				5E9DDE111761F3A4003EFF8B /* SecondViewController.m */,
 				5E3D7CA717688C620082FD62 /* CommunicationWithServer.h */,
@@ -230,6 +242,10 @@
 				5E9DDE141761F3A4003EFF8B /* second.png in Resources */,
 				5E9DDE161761F3A4003EFF8B /* second@2x.png in Resources */,
 				5EAA99121769BD4C0079FFA1 /* serverUDP.py in Resources */,
+				5E93B008176DA507009D65F6 /* rss.png in Resources */,
+				5E93B00A176DA61D009D65F6 /* hammer.png in Resources */,
+				5E93B00C176DA623009D65F6 /* heart-rate.png in Resources */,
+				5E93B00E176DB940009D65F6 /* auction-hammer-icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -148,7 +148,6 @@ class RoomArray:
 
 
 
-
 def parseCMD(data):
     data = data.strip()
     if data and data[0] == '/':
@@ -228,15 +227,20 @@ if __name__ == "__main__":
 
             if cmd == '/join':
                 if currentUser:
-                    room = roomList.findRoom(param)
-                    if room:
-                        if currentUser.joinRoom(room):
-                            currentRoom = room
-                            #response = makeResponse([(room.roomName, room.currentPrice)])
-                            response = "OK"
-                            alart = '! Welcome new user to this auction: %s.' % (currentUser.userName)
-                        else:
-                            response = "NO"
+                    try:
+                        param = int(param)
+                    except:
+                        print 'Parameter Wrong.'
+                    else:
+                        room = roomList.findRoom(param)
+                        if room:
+                            if currentUser.joinRoom(room):
+                                currentRoom = room
+                                #response = makeResponse([(room.roomName, room.currentPrice)])
+                                response = "OK"
+                                alart = '! Welcome new user to this auction: %s.' % (currentUser.userName)
+                            else:
+                                response = "NO"
 
 
             if currentRoom != None:
@@ -245,7 +249,11 @@ if __name__ == "__main__":
                     response = makeResponse([(user.userName, user.currentPrice) for user in usersInSameRoom])
 
                 if cmd == '/bid':
-                    price = int(param)
+                    try:
+                        price = int(param)
+                    except:
+                        print 'Parameter wrong.'
+                        price = 0
                     flag = False 
                     if currentUser.placeBid(price):
                         if currentRoom.placeBid(currentUser, price):
@@ -256,9 +264,8 @@ if __name__ == "__main__":
                     if flag == False:
                         sendAlart(s, '! Illegal bid.', user.userAddress)
 
-
                 if cmd == '/leave': #/leave is safe
-                    if currentUser.currentPrice == currentRoom.currentPrice:
+                    if currentUser.currentPrice == currentRoom.currentPrice and currentUser.currentPrice != 0:
                         alart = '! The holder of highest bid is leaving the auction.'
                         response = 'NO'
                     else:
@@ -283,18 +290,40 @@ if __name__ == "__main__":
                     roomBasePrice = 0
                     if param.find(' ') > 0:
                         roomName = param.split(' ')[0]
-                        roomBasePrice = param.split(' ')[1]
+                        try:
+                            roomBasePrice = int(param.split(' ')[1])
+                        except:
+                            print 'Parameter Wrong.'
+                            roomBasePrice = 0
                     newRoom = AuctionRoom(roomID = roomList.countRooms(), name = roomName, basePrice = roomBasePrice)
                     roomList.addRoom(newRoom)
 
+                if cmd == '/closeauction' and param:
+                    try:
+                        param = int(param)
+                    except:
+                        print 'Parameter wrong.'
+                    else:
+                        response = 'OK'
+                        room = roomList.findRoom(int(param))
+                        if room != None:
+                            whoinroom = userList.getUsersInSameRoom(room)
+                            for user in whoinroom:
+                                user.leaveRoom()
+                                sendAlart(s, '! This auction is closed by administrator.', user.userAddress)
+                            #roomList.removeRoom(room)
+                            room.roomName += '(Closed)'
+
                 if currentRoom != None:
                     if cmd == '/kickout' and param:
+                        response = 'OK'
                         whotokick = userList.findUserByName(param)
                         for loser in whotokick:
                             sendAlart(s, '! You are kicked out by administrator.', loser.userAddress)
                             loser.leaveRoom()
                         if len(whotokick) > 0:
                             alart = '! User:%s has been kicked out.' % (param)
+
 
 
 
