@@ -28,12 +28,16 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    
     self.comm = [[CommunicationWithServer alloc] init];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+
     self.comm.delegate = self;
     self.isLogin = -1;
     self.EnterButton.enabled = NO;
-   
 }
 
 - (BOOL)checkValidIP:(NSString *)IP

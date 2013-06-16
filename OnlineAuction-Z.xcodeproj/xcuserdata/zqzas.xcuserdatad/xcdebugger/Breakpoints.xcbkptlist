@@ -86,24 +86,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "OnlineAuction-Z/LoginViewController.m"
-         timestampString = "392885158.65921"
+         timestampString = "393058674.783728"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "32"
-         endingLineNumber = "32"
-         landmarkName = "-viewDidLoad"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "OnlineAuction-Z/LoginViewController.m"
-         timestampString = "392885478.607537"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "82"
-         endingLineNumber = "82"
+         startingLineNumber = "86"
+         endingLineNumber = "86"
          landmarkName = "-loginAction:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -112,11 +99,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "OnlineAuction-Z/LoginViewController.m"
-         timestampString = "392885478.607537"
+         timestampString = "393058674.783728"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "100"
-         endingLineNumber = "100"
+         startingLineNumber = "104"
+         endingLineNumber = "104"
          landmarkName = "-prepareForSegue:sender:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -125,11 +112,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "OnlineAuction-Z/LoginViewController.m"
-         timestampString = "392885478.607537"
+         timestampString = "393058674.783728"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "63"
-         endingLineNumber = "63"
+         startingLineNumber = "67"
+         endingLineNumber = "67"
          landmarkName = "-notifyReply:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -216,11 +203,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "OnlineAuction-Z/LoginViewController.m"
-         timestampString = "392885478.607537"
+         timestampString = "393058674.783728"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "83"
-         endingLineNumber = "83"
+         startingLineNumber = "87"
+         endingLineNumber = "87"
          landmarkName = "-loginAction:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -229,11 +216,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "OnlineAuction-Z/LoginViewController.m"
-         timestampString = "392885478.607537"
+         timestampString = "393058674.783728"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "84"
-         endingLineNumber = "84"
+         startingLineNumber = "88"
+         endingLineNumber = "88"
          landmarkName = "-loginAction:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -242,11 +229,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "OnlineAuction-Z/LoginViewController.m"
-         timestampString = "392885445.62498"
+         timestampString = "393058674.783728"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "99"
-         endingLineNumber = "99"
+         startingLineNumber = "103"
+         endingLineNumber = "103"
          landmarkName = "-prepareForSegue:sender:"
          landmarkType = "5">
       </FileBreakpoint>
